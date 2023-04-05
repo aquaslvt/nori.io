@@ -47,6 +47,8 @@ repeat
         push(Stack[#Stack] ^ Stack[#Stack - 1])
     elseif char == "v" then
         push(math.sqrt(Stack[#Stack]))
+    elseif char == "@" then
+        Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
     end
 
     ip = ip + 1

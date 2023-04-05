@@ -35,8 +35,14 @@ repeat
         pop()
     elseif char == "+" then
         push(Stack[#Stack] + Stack[#Stack - 1])
-        pop()
-        pop()
+    elseif char == "-" then
+        push(Stack[#Stack] - Stack[#Stack - 1])
+    elseif char == "*" then
+        push(Stack[#Stack] * Stack[#Stack - 1])
+    elseif char == "/" then
+        push(Stack[#Stack] / Stack[#Stack - 1])
+    elseif char == "%" then
+        push(Stack[#Stack] % Stack[#Stack - 1])
     end
 
     ip = ip + 1

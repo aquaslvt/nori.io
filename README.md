@@ -23,7 +23,7 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 | `^`     | Raise last two values together, leaving only the result. |
 | `%`     | Modulo last two values together, leaving only the result. |
 | `v`     | Square root last two values together, leaving only the result. |
-| `foo|'bar'|` | Set the variable `foo` to the string value `bar`
+| `foo\'bar'\` | Set the variable `foo` to the string value `bar`
 
 *Note that variables, `@`, `[]`, and `''` are currently available only in the beta versions, so you can't find them on the official version unless you're allowed to.*
 

@@ -2,7 +2,7 @@
 local numbers = "1234567890"
 local commands = "><IO^-+/%[]'"
 
-local code_file = io.open("main.ni", "r")
+local code_file = io.open("main.nori", "r")
 local code = code_file:read("*all")
 
 local ip = 0
@@ -32,6 +32,10 @@ repeat
         push(io.read())
     elseif char == "O" then
         io.write(Stack[#Stack])
+        pop()
+    elseif char == "+" then
+        push(Stack[#Stack] + Stack[#Stack - 1])
+        pop()
         pop()
     end
 

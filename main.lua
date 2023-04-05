@@ -43,6 +43,10 @@ repeat
         push(Stack[#Stack] / Stack[#Stack - 1])
     elseif char == "%" then
         push(Stack[#Stack] % Stack[#Stack - 1])
+    elseif char == "^" then
+        push(Stack[#Stack] ^ Stack[#Stack - 1])
+    elseif char == "v" then
+        push(math.sqrt(Stack[#Stack]))
     end
 
     ip = ip + 1

@@ -14,6 +14,7 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 | `I`         | Push the user input.                                 |
 | `O`         | Output the last value to the console then pop it.    |
 | `@`         | Swap the last two values.                            |
+| `:`         | Duplicate the top value.                            |
 | `[`	      | Jump past the matching `]` if the last value is 0.   |
 | `]`	      | Jump back to the matching `[` if the last value is not zero. |
 | `+`     | Add last two values together, leaving only the result. |

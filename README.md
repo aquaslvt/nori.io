@@ -39,3 +39,6 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 ### Hello world
 ```>'Hello World!'O```
 
+## Other variations
+[nori.io](https://scratch.mit.edu/projects/819125582/)
+

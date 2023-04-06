@@ -20,7 +20,7 @@ function pop()
     table.remove(Stack)
 end
 
-------------------------
+---------------
 -- Interpret the code --
 ------------------------
 repeat
@@ -49,6 +49,8 @@ repeat
         push(math.sqrt(Stack[#Stack]))
     elseif char == "@" then
         Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
+    elseif char == ":" then
+        push(Stack[#Stack])
     end
 
     ip = ip + 1

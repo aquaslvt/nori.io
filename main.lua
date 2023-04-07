@@ -34,19 +34,45 @@ repeat
         io.write(Stack[#Stack])
         pop()
     elseif char == "+" then
-        push(Stack[#Stack] + Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x + y)
     elseif char == "-" then
-        push(Stack[#Stack] - Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x - y)
     elseif char == "*" then
-        push(Stack[#Stack] * Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x * y)
     elseif char == "/" then
-        push(Stack[#Stack] / Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x / y)
     elseif char == "%" then
-        push(Stack[#Stack] % Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x % y)
     elseif char == "^" then
-        push(Stack[#Stack] ^ Stack[#Stack - 1])
+        local x = Stack[#Stack]
+        pop()
+        local y = Stack[#Stack]
+        pop()
+        push(x ^ y)
     elseif char == "v" then
-        push(math.sqrt(Stack[#Stack]))
+        local x = Stack[#Stack]
+        pop()
+        push(math.sqrt(x))
     elseif char == "@" then
         Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
     elseif char == ":" then

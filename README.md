@@ -1,5 +1,5 @@
 # nori.io#
-nori.io# is a one dimensional esolang that is interpreted in Scratch, altough you're currently seeing nori.io# which is the version written in Lua
+nori.io is a one dimensional esolang that is interpreted in Scratch, although you're currently seeing nori.io# which is the version written in Lua
 
 ## Commands
 There are a bunch of commands in nori.io#, including event limited commands! Which will be coming in later versions

@@ -20,8 +20,8 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 | `*`     | Multiply last two values together, leaving only the result. |
 | `/`     | Divide last two values together, leaving only the result. |
 | `^`     | Raise last two values together, leaving only the result. |
-| `%`     | Modulo last two values together, leaving only the result. |
 | `v`     | Square root last two values together, leaving only the result.|
+| `%`     | Modulo last two values together, leaving only the result. |
 
 ## Example programs
 

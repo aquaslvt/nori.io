@@ -30,5 +30,8 @@ There are actually a bunch more (hello World, truth-machine, etc...) but they in
 ### Cat program
 ```IO```
 
+### Simple adder
+```II+O```
+
 ## Other variations
 [nori.io](https://scratch.mit.edu/projects/819125582/)

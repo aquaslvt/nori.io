@@ -9,7 +9,6 @@ The IP reads the program left-to-right character per character, and for example 
 There are a bunch of commands in nori.io#, including event limited commands! Which will be coming in later versions
 
 ### Main commands
-***
 
 | Command     | Description                                                   |
 | ----------- | ------------------------------------------------------------- |
@@ -38,9 +37,6 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 ```NO```
 
 ### Simple adder
-```NN+O```
-
-*Note that there are actually a bunch more (hello world, truth-machine, etc...) but they include commands that aren't here yet*
 ```NN+O```
 
 *Note that there are actually a bunch more (hello world, truth-machine, etc...) but they include commands that aren't here yet*

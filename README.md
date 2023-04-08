@@ -17,6 +17,7 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 | `I`         | Push the user input.                                          |
 | `O`         | Output the last value to the console then pop it.             |
 | `@`         | Swap the last two values.                                     |
+| `£`         | Reverse the whole stack.                                      |
 | `:`         | Duplicate the top value.                                      |
 | `+`         | Add last two values together, leaving only the result.        |
 | `-`         | Subtract last two values together, leaving only the result.   |
@@ -30,6 +31,9 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 
 ### Cat program
 ```IO```
+
+#### Numerical cat program
+```NO```
 
 ### Simple adder
 ```NN+O```

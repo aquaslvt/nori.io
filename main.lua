@@ -1,4 +1,6 @@
 -- Define variables --
+require("stack_funs")
+
 local numbers = "1234567890"
 local commands = "><IO^-+/%[]'"
 
@@ -9,23 +11,12 @@ local ip = 0
 local char = string.sub(code, ip, ip)
 local next_char = string.sub(code, ip + 1, ip + 1)
 
--- Define the stack --
-Stack = {}
-
-function push(item)
-    table.insert(Stack, item)
-end
-
-function pop()
-    table.remove(Stack)
-end
-
----------------
+------------------------
 -- Interpret the code --
 ------------------------
 repeat
   if char == ">" then
-      push(next_char)
+    push(next_char)
   elseif char == "<" then
     pop()
 
@@ -92,6 +83,8 @@ repeat
   elseif char == ":" then
     push(Stack[#Stack])
 
+  elseif char == "£" then
+    reverse()
   end
 
   -- Update the ip-

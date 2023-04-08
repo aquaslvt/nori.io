@@ -24,64 +24,80 @@ end
 -- Interpret the code --
 ------------------------
 repeat
-    if char == ">" then
-        push(next_char)
-    elseif char == "<" then
-        pop()
-    elseif char == "I" then
-        push(io.read())
-    elseif char == "O" then
-        io.write(Stack[#Stack])
-        pop()
-    elseif char == "+" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x + y)
-    elseif char == "-" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x - y)
-    elseif char == "*" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x * y)
-    elseif char == "/" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x / y)
-    elseif char == "%" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x % y)
-    elseif char == "^" then
-        local x = Stack[#Stack]
-        pop()
-        local y = Stack[#Stack]
-        pop()
-        push(x ^ y)
-    elseif char == "v" then
-        local x = Stack[#Stack]
-        pop()
-        push(math.sqrt(x))
-    elseif char == "@" then
-        Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
-    elseif char == ":" then
-        push(Stack[#Stack])
-    end
+  if char == ">" then
+      push(next_char)
+  elseif char == "<" then
+    pop()
 
-    ip = ip + 1
-    char = string.sub(code, ip, ip)
-    next_char = string.sub(code, ip + 1, ip + 1)
+  elseif char == "I" then
+    push(io.read())
+
+  elseif char == "N" then
+    push(io.read('*n'))
+
+  elseif char == "O" then
+    io.write(Stack[#Stack])
+    pop()
+
+  elseif char == "+" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x + y)
+
+  elseif char == "-" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x - y)
+
+  elseif char == "*" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x * y)
+
+  elseif char == "/" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x / y)
+
+  elseif char == "%" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x % y)
+
+  elseif char == "^" then
+    local x = Stack[#Stack]
+    pop()
+    local y = Stack[#Stack]
+    pop()
+    push(x ^ y)
+
+  elseif char == "v" then
+    local x = Stack[#Stack]
+    pop()
+    push(math.sqrt(x))
+
+  elseif char == "@" then
+    Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
+
+  elseif char == ":" then
+    push(Stack[#Stack])
+
+  end
+
+  -- Update the ip-
+  ip = ip + 1
+  char = string.sub(code, ip, ip)
+  next_char = string.sub(code, ip + 1, ip + 1)
 until ip > #code
 
 print()

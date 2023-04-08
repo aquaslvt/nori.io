@@ -7,21 +7,22 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 ### Main commands
 ***
 
-| Command     | Description                                           |
-| ----------- | ----------------------------------------------------- |
-| `>`         | Push the value next to it.                           |
-| `<`         | Pop the last value.                                  |
-| `I`         | Push the user input.                                 |
-| `O`         | Output the last value to the console then pop it.    |
-| `@`         | Swap the last two values.                            |
-| `:`         | Duplicate the top value.                            |
-| `+`     | Add last two values together, leaving only the result. |
-| `-`     | Subtract last two values together, leaving only the result. |
-| `*`     | Multiply last two values together, leaving only the result. |
-| `/`     | Divide last two values together, leaving only the result. |
-| `^`     | Raise last two values together, leaving only the result. |
-| `v`     | Square root last two values together, leaving only the result.|
-| `%`     | Modulo last two values together, leaving only the result. |
+| Command     | Description                                                   |
+| ----------- | ------------------------------------------------------------- |
+| `>`         | Push the value next to it.                                    |
+| `<`         | Pop the last value.                                           |
+| `N`         | Push the numeric user input.                                  |
+| `I`         | Push the user input.                                          |
+| `O`         | Output the last value to the console then pop it.             |
+| `@`         | Swap the last two values.                                     |
+| `:`         | Duplicate the top value.                                      |
+| `+`         | Add last two values together, leaving only the result.        |
+| `-`         | Subtract last two values together, leaving only the result.   |
+| `*`         | Multiply last two values together, leaving only the result.   |
+| `/`         | Divide last two values together, leaving only the result.     |
+| `^`         | Raise last two values together, leaving only the result.      |
+| `v`         | Square root last two values together, leaving only the result.|
+| `%`         | Modulo last two values together, leaving only the result.     |
 
 ## Example programs
 
@@ -31,7 +32,7 @@ There are actually a bunch more (hello World, truth-machine, etc...) but they in
 ```IO```
 
 ### Simple adder
-```II+O```
+```NN+O```
 
 ## Other variations
 [nori.io](https://scratch.mit.edu/projects/819125582/)

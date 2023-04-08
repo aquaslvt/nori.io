@@ -3,6 +3,8 @@ nori.io is a one dimensional esolang that is interpreted in Scratch, although yo
 
 The IP reads the program left-to-right character per character, and for example the program `>4` is going to push *4* to the stack since `4` is right after `>`
 
+The IP reads the program left-to-right character per character, and for example the program `>4` is going to push *4* to the stack since `4` is right after `>`
+
 ## Commands
 There are a bunch of commands in nori.io#, including event limited commands! Which will be coming in later versions
 
@@ -36,6 +38,9 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 ```NO```
 
 ### Simple adder
+```NN+O```
+
+*Note that there are actually a bunch more (hello world, truth-machine, etc...) but they include commands that aren't here yet*
 ```NN+O```
 
 *Note that there are actually a bunch more (hello world, truth-machine, etc...) but they include commands that aren't here yet*

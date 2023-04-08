@@ -28,6 +28,8 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 
 ## Example programs
 
+There are actually a bunch more (hello World, truth-machine, etc...) but they include commands that aren't here yet
+
 ### Cat program
 ```IO```
 
@@ -35,9 +37,7 @@ There are a bunch of commands in nori.io#, including event limited commands! Whi
 ```NO```
 
 ### Simple adder
-```NN+O```
-
-*Note that there are actually a bunch more (hello world, truth-machine, etc...) but they include commands that aren't here yet*
+```II+O```
 
 ## Other variations
 [nori.io](https://scratch.mit.edu/projects/819125582/)

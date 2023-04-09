@@ -1,13 +1,13 @@
 interpreter = require("interpreter")
 
-function runCode(code, startStack, expectedStack)
-    interpreter.Stack.Stack = startStack
+function runCode(code, start_stack, expected_stack)
+    interpreter.Stack.Stack = start_stack
     interpreter.interpret(code)
-    if #interpreter.Stack.Stack ~= #expectedStack then
+    if #interpreter.Stack.Stack ~= #expected_stack then
         return false
     end
     for i, val in ipairs(interpreter.Stack.Stack) do
-        if expectedStack[i] ~= val then
+        if expected_stack[i] ~= val then
             return false
         end
     end
@@ -15,13 +15,13 @@ function runCode(code, startStack, expectedStack)
 end
 
 testResults = {}
-function runTest(code, startStack, expectedStack, testName)
-    local pass = runCode(code, startStack, expectedStack)
+function runTest(code, start_stack, expected_stack, test_name)
+    local pass = runCode(code, start_stack, expected_stack)
     if pass then
         io.write("O")
     else
         io.write("X")
-        table.insert(testResults, testName)
+        table.insert(testResults, test_name)
     end
 end
 
@@ -32,8 +32,6 @@ runTest(">94", {}, {94}, "push 2 digit number")
 runTest(">1>2>3", {}, {1, 2, 3}, "push 1, 2, 3")
 
 runTest("<", {1, 2, 3}, {1, 2}, "push then pop")
-
--- I can't be bothered setting up IO tests
 
 runTest("+", {7, 8}, {15}, "add 2 positive integers")
 

@@ -20,10 +20,10 @@ function stack_funs:pop()
 end
 
 function stack_funs:reverse()
-  for i=#item, 1, -1 do
-  	self.Stack[#self.Stack + 1] = item[i]
-  end
-  item = self.Stack
+    for i=#item, 1, -1 do
+        self.Stack[#self.Stack + 1] = item[i]
+    end
+    item = self.Stack
 end
 
 return stack_funs

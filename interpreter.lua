@@ -88,5 +88,6 @@ function interpreter.interpret(code)
       char = string.sub(code, ip, ip)
       next_char = string.sub(code, ip + 1, ip + 1)
     until ip > #code
+end
 
 return interpreter

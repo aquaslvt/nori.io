@@ -64,7 +64,7 @@ function interpreter.interpret(code)
         local y = Stack:pop()
         Stack:push(x ^ y)
 
-      elseif char == "v" then
+      elseif char == "z" then
         local x = Stack:pop()
         Stack:push(math.sqrt(x))
 

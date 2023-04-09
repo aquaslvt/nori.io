@@ -1,23 +1,29 @@
 -- Define the stack --
 stack_funs = {}
 
-Stack = {}
-
-function push(item)
-    table.insert(Stack, item)
+function stack_funs:new(o)
+    o = o or {}
+    setmetatable(o, self)
+    self.Stack = {}
+    self.__index = self
+    return o
 end
 
-function pop()
-    table.remove(Stack)
+function stack_funs:push(item)
+    table.insert(self.Stack, item)
 end
 
-function reverse()
-  for i=#item, 1, -1 do
-  	Stack[#Stack + 1] = item[i]
-  end
-  item = Stack
+function stack_funs:pop()
+    local val = self.Stack[#self.Stack]
+    table.remove(self.Stack)
+    return val
 end
 
-stack_funs.push = push
-stack_funs.pop = pop
+function stack_funs:reverse()
+    for i=#item, 1, -1 do
+        self.Stack[#self.Stack + 1] = item[i]
+    end
+    item = self.Stack
+end
+
 return stack_funs

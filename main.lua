@@ -1,6 +1,8 @@
 -- Define variables --
 require("stack_funs")
 
+Stack = stack_funs:new()
+
 local numbers = "1234567890"
 local commands = "><IO^-+/%[]'"
 
@@ -16,75 +18,67 @@ local next_char = string.sub(code, ip + 1, ip + 1)
 ------------------------
 repeat
   if char == ">" then
-    push(next_char)
+    Stack:push(next_char)
+
   elseif char == "<" then
-    pop()
+    Stack:pop()
 
   elseif char == "I" then
-    push(io.read())
+    Stack:push(io.read())
 
   elseif char == "N" then
-    push(io.read('*n'))
+    Stack:push(io.read('*n'))
 
   elseif char == "O" then
-    io.write(Stack[#Stack])
-    pop()
+    io.write(Stack:pop())
 
   elseif char == "+" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x + y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x + y)
 
   elseif char == "-" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x - y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x - y)
 
   elseif char == "*" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x * y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x * y)
 
   elseif char == "/" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x / y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x / y)
 
   elseif char == "%" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x % y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x % y)
 
   elseif char == "^" then
-    local x = Stack[#Stack]
-    pop()
-    local y = Stack[#Stack]
-    pop()
-    push(x ^ y)
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x ^ y)
 
   elseif char == "v" then
-    local x = Stack[#Stack]
-    pop()
-    push(math.sqrt(x))
+    local x = Stack:pop()
+    Stack:push(math.sqrt(x))
 
   elseif char == "@" then
-    Stack[#Stack], Stack[#Stack-1] = Stack[#Stack-1], Stack[#Stack]
+    local x = Stack:pop()
+    local y = Stack:pop()
+    Stack:push(x)
+    Stack:push(y)
 
   elseif char == ":" then
-    push(Stack[#Stack])
+    local x = Stack:pop()
+    Stack:push(x)
+    Stack:push(x)
 
   elseif char == "£" then
-    reverse()
+    Stack:reverse()
   end
 
   -- Update the ip-

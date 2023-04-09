@@ -1,6 +1,6 @@
 interpreter = {}
 
-require("stack_funs")
+require("stack_funcs")
 interpreter.Stack = stack_funs:new()
 
 interpreter.numbers = "1234567890"

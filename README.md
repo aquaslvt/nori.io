@@ -14,6 +14,8 @@ The iterpreter reads the program left-to-right, character per character, and alw
 | `N`         | Push the numeric user input.                                  |
 | `I`         | Push the user input.                                          |
 | `O`         | Output the last value to the console then pop it.             |
+| `,`         | Push the user input as an ASCII value.                        |
+| `.`         | Output the last ASCII value to the console then pop it.       |
 | `@`         | Swap the last two values.                                     |
 | `£`         | Reverse the whole stack.                                      |
 | `:`         | Duplicate the top value.                                      |

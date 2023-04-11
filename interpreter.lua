@@ -30,6 +30,12 @@ function interpreter.interpret(code)
 
       elseif char == "N" then
         Stack:push(io.read('*n'))
+      
+      elseif char == "," then
+        Stack:push(string.byte(io.read()))
+
+      elseif char == "." then
+        io.write(string.char(Stack:pop()))
 
       elseif char == "O" then
         io.write(Stack:pop())

@@ -1,10 +1,9 @@
-# nori.io#
-nori.io is a one dimensional esolang that is interpreted in Scratch, although you're currently seeing nori.io# which is the version written in Lua
+# nori.io
+nori.io is a short esolang named after a stray cat I found
 
 The iterpreter reads the program left-to-right, character per character, and always moves right.
 
 ## Commands
-There are a bunch of commands in nori.io#, including event limited commands! Which will be coming in later versions
 
 ### Main commands
 
@@ -40,4 +39,4 @@ There are actually a bunch more (hello world, truth-machine, etc...) but they in
 ```II+O```
 
 ## Other variations
-[nori.io](https://scratch.mit.edu/projects/819125582/)
+[nori.io legacy](https://scratch.mit.edu/projects/819125582/)

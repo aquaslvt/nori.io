@@ -26,35 +26,36 @@ function runTest(code, start_stack, expected_stack, test_name)
 end
 
 print("Individual Instructions")
+print("=======================")
 
-runTest(">1", {}, {1}, "push 1")
-runTest(">94", {}, {94}, "push 2 digit number")
-runTest(">1>2>3", {}, {1, 2, 3}, "push 1, 2, 3")
+runTest(">1", {}, {1}, "Push 1")
+runTest(">94", {}, {94}, "Push a 2 digit number")
+runTest(">1>2>3", {}, {1, 2, 3}, "Push 1, 2, 3")
 
-runTest("<", {1, 2, 3}, {1, 2}, "push then pop")
+runTest("<", {1, 2, 3}, {1, 2}, "Push then pop")
 
-runTest("+", {7, 8}, {15}, "add 2 positive integers")
+runTest("+", {7, 8}, {15}, "Add 2 positive integers")
 
-runTest("-", {7, 8}, {1}, "subtract 2 positive integers")
+runTest("-", {7, 8}, {1}, "Subtract 2 positive integers")
 
-runTest("*", {7, 8}, {56}, "multiply 2 positive integers")
+runTest("*", {7, 8}, {56}, "Multiply 2 positive integers")
 
-runTest("/", {4, 8}, {2}, "divide positive integer multiple")
+runTest("/", {4, 8}, {2}, "Divide positive integer multiple")
 
-runTest("%", {23, 8}, {7}, "modulo 2 positive integers")
+runTest("%", {23, 8}, {7}, "Modulo 2 positive integers")
 
-runTest("^", {2, 5}, {25}, "square an integer")
+runTest("^", {2, 5}, {25}, "Square an integer")
 
-runTest("v", {25}, {5}, "square root an integer")
+runTest("v", {25}, {5}, "Square root an integer")
 
-runTest("@", {7, 8}, {8, 7}, "swap")
+runTest("@", {7, 8}, {8, 7}, "Swap")
 
-runTest(":", {7}, {7, 7}, "duplicate")
+runTest(":", {7}, {7, 7}, "Duplicate")
 
-runTest("£", {}, {}, "reverse no elements")
-runTest("£", {1}, {1}, "reverse one element")
-runTest("£", {1, 2}, {2, 1}, "reverse 2 elements")
-runTest("£", {"test", 73, true}, {true, 73, "test"}, "reverse various elements")
+runTest("£", {}, {}, "Reverse no elements")
+runTest("£", {1}, {1}, "Reverse one element")
+runTest("£", {1, 2}, {2, 1}, "Reverse 2 elements")
+runTest("£", {"test", 73, true}, {true, 73, "test"}, "Reverse various elements")
 
 print()
 for _, unpassedTest in ipairs(testResults) do

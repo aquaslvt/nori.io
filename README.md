@@ -4,6 +4,7 @@ nori.io is a short esolang named after a stray cat I found
 The iterpreter reads the program left-to-right, character per character, and always moves right.
 
 ## Commands
+The interpreter ignores every other character than these, making them no-op.
 
 ### Main commands
 

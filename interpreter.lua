@@ -32,7 +32,10 @@ function interpreter.interpret(code)
         Stack:push(io.read('*n'))
       
       elseif char == "," then
-        Stack:push(string.byte(io.read()))
+        local input = io.read()
+        for character in string.gmatch(input, '.') do
+          Stack:push(string.byte(character))
+        end
 
       elseif char == "." then
         io.write(string.char(Stack:pop()))
@@ -85,7 +88,7 @@ function interpreter.interpret(code)
         Stack:push(x)
         Stack:push(x)
 
-      elseif char == "£" then
+      elseif char == "$" then
         Stack:reverse()
       end
 

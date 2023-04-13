@@ -46,5 +46,10 @@ This programs asks user input for a square's side
 
 ```>2N^O```
 
+#### Rectangle area
+This programs asks for the width and height of a rectangle
+
+```NN*O```
+
 ## Other variations
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

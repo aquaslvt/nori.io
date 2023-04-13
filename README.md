@@ -41,5 +41,10 @@ There are actually a bunch more (hello world, truth-machine, etc...) but they in
 ### Simple adder
 ```II+O```
 
+### Square area
+This programs asks user input for a square's side
+
+```>2N^O```
+
 ## Other variations
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

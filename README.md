@@ -10,23 +10,27 @@ The interpreter ignores every other character than these, making them no-op.
 
 | Command     | Description                                                   |
 | ----------- | ------------------------------------------------------------- |
-| `>`         | Push the value next to it.                                    |
-| `<`         | Pop the last value.                                           |
-| `N`         | Push the numeric user input.                                  |
-| `I`         | Push the user input.                                          |
-| `,`         | Push the user input as an ASCII value.                        |
-| `O`         | Output the last value to the console then pop it.             |
-| `.`         | Output the last ASCII value to the console then pop it.       |
-| `@`         | Swap the last two values.                                     |
-| `$`         | Reverse the whole stack.                                      |
-| `:`         | Duplicate the top value.                                      |
-| `+`         | Add last two values together, leaving only the result.        |
-| `-`         | Subtract last two values together, leaving only the result.   |
-| `*`         | Multiply last two values together, leaving only the result.   |
-| `/`         | Divide last two values together, leaving only the result.     |
-| `^`         | Raise last two values together, leaving only the result.      |
-| `z`         | Square root last two values together, leaving only the result.|
-| `%`         | Modulo last two values together, leaving only the result.     |
+| `>`         | Push the value next to it                                     |
+| `<`         | Pop the last value                                            |
+| `N`         | Push the numeric user input                                   |
+| `I`         | Push the user input                                           |
+| `,`         | Push the user input as an ASCII value                         |
+| `O`         | Output the last value to the console then pop it              |
+| `.`         | Output the last ASCII value to the console then pop it        |
+| `@`         | Swap the last two values                                      |
+| `$`         | Reverse the whole stack                                       |
+| `:`         | Duplicate the top value                                       |
+| `+`         | Add last two values together, leaving only the result         |
+| `-`         | Subtract last two values together, leaving only the result    |
+| `*`         | Multiply last two values together, leaving only the result    |
+| `/`         | Divide last two values together, leaving only the result      |
+| `^`         | Raise last two values together, leaving only the result       |
+| `z`         | Square root last two values together, leaving only the result |
+| `%`         | Modulo last two values together, leaving only the result      |
+| `c`         | Ceil the last number                                          |
+| `f`         | Floor the last number                                         |
+| `r`         | Push a random number                                          |
+| `W`         | Set the IP position to 0 (wrap around the program)            |
 
 ## Example programs
 
@@ -50,6 +54,12 @@ This programs asks user input for a square's side
 This programs asks for the width and height of a rectangle
 
 ```NN*O```
+
+### DNA-looking thingy
+This kinda looks like a DNA when run in a fullscreen terminal
+**TW: Flash**
+
+```rOW```
 
 ## Other variations
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

@@ -3,11 +3,8 @@ interpreter = {}
 require("stack_funcs")
 interpreter.Stack = stack_funs:new()
 
-interpreter.numbers = "1234567890"
-interpreter.commands = "><IO^-+/%[]'"
+-- Make sure to set the stack before calling the interpreter 
 
--- Make sure to set the stack before
--- calling interpret
 function interpreter.interpret(code)
     local Stack = interpreter.Stack
 
@@ -33,6 +30,7 @@ function interpreter.interpret(code)
       
       elseif char == "," then
         local input = io.read()
+
         for character in string.gmatch(input, '.') do
           Stack:push(string.byte(character))
         end
@@ -77,6 +75,17 @@ function interpreter.interpret(code)
         local x = Stack:pop()
         Stack:push(math.sqrt(x))
 
+      elseif char == "c" then
+        local x = Stack:pop()
+        Stack:push(math.ceil(x))
+
+      elseif char == "f" then
+        local x = Stack:pop()
+        Stack:push(math.floor(x))
+
+      elseif char == "r" then
+        Stack:push(math.random())
+      
       elseif char == "@" then
         local x = Stack:pop()
         local y = Stack:pop()
@@ -90,6 +99,9 @@ function interpreter.interpret(code)
 
       elseif char == "$" then
         Stack:reverse()
+
+      elseif char == "W" then
+        ip = 0
       end
 
       -- Update the ip-

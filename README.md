@@ -1,5 +1,5 @@
 # nori.io
-nori.io is a short esolang named after a stray cat I found
+nori.io is a short stack-based esolang named after a stray cat I found
 
 The iterpreter reads the program left-to-right, character per character, and always moves right.
 
@@ -55,9 +55,10 @@ This programs asks for the width and height of a rectangle
 
 ```NN*O```
 
-### DNA-looking thingy
+### Funny looking thing
+*Warning: flashing lights*
+
 This kinda looks like a DNA when run in a fullscreen terminal
-**TW: Flash**
 
 ```rOW```
 

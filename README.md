@@ -46,7 +46,7 @@ There are actually a bunch more (hello world, truth-machine, etc...) but they in
 ```NO```
 
 ### Simple adder
-```II+O```
+```NN+O```
 
 ### Square area
 This programs asks user input for a square's side

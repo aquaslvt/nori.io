@@ -170,8 +170,8 @@ tokens.tokenise = function(code)
       tokens.bracketIndentation = tokens.bracketIndentation + 1
       tokens.simpleToken("[")
     elseif tokens.char == "]" then
-      tokens.Token.indentation = tokens.bracketIndentation
       tokens.bracketIndentation = tokens.bracketIndentation - 1
+      tokens.Token.indentation = tokens.bracketIndentation
       if tokens.bracketIndentation < 1 then
         error("No matching opening bracket for closing bracket\n",
           tokens.line, "| ",

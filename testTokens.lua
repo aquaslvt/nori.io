@@ -83,7 +83,7 @@ function printTokens(code)
   for i, val in ipairs(Tokens) do
     if val.token == "[" or 
       val.token == "]" then
-      print(val.token, val.indentation, jump)
+      print(val.token, val.indentation, val.jump)
     elseif val.token == "string" or
       val.token == "number" or
       val.token == "variable" then
@@ -106,5 +106,10 @@ addTest(">27>35", {{token=">"}, {token="number", value=27}, {token=">"}, {token=
 addTest(">27", {{token=">"}, {token="number", value=27}})
 addTest(">\"27\"", {{token=">"}, {token="string", value="27"}})
 addTest(">|27|", {{token=">"}, {token="variable", value="27"}})
+addTest("[]", {{token="[", indentation=1, jump=2}, {token="]", indentation=1, jump=1}})
+addTest("[[]]", {{token="[", indentation=1, jump=4},
+                 {token="[", indentation=2, jump=3},
+                 {token="]", indentation=2, jump=2},
+                 {token="]", indentation=1, jump=1}})
 
 runTests(tests)

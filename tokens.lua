@@ -21,7 +21,7 @@ tokens.cont = function()
   tokens.char = string.sub(tokens.code, tokens.ip, tokens.ip)
   if tokens.char == "\n" then
     tokens.bol = tokens.ip
-    tokens.line = tokens + 1
+    tokens.line = tokens.line + 1
   end
   return true
 end
@@ -32,7 +32,7 @@ tokens.addToken = function()
 end
 
 tokens.addString = function()
-  tokens.Token.token = "string"
+  tokens.Token.name = "string"
 
   local e = tokens.cont()
   local start = tokens.ip
@@ -52,7 +52,7 @@ tokens.addString = function()
 end
 
 tokens.addNumber = function()
-  tokens.Token.token = "number"
+  tokens.Token.name = "number"
 
   local e = true
   local start = tokens.ip
@@ -66,7 +66,7 @@ tokens.addNumber = function()
 end
 
 tokens.addVariable = function()
-  tokens.Token.token = "variable"
+  tokens.Token.name = "variable"
 
   local e = tokens.cont()
   local start = tokens.ip
@@ -86,7 +86,7 @@ tokens.addVariable = function()
 end
 
 tokens.simpleToken = function(name)
-  tokens.Token.token = name
+  tokens.Token.name = name
   tokens.cont()
   tokens.addToken()
 end
@@ -151,12 +151,18 @@ tokens.tokenise = function(code)
       tokens.simpleToken("f")
     elseif tokens.char == "r" then
       tokens.simpleToken("r")
+    elseif tokens.char == "b" then
+      tokens.simpleToken("b")
+    elseif tokens.char == "B" then
+      tokens.simpleToken("B")
     elseif tokens.char == "@" then
       tokens.simpleToken("@")
     elseif tokens.char == ":" then
       tokens.simpleToken(":")
     elseif tokens.char == "$" then
       tokens.simpleToken("$")
+    elseif tokens.char == "_" then
+      tokens.simpleToken("_")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
     elseif tokens.char == "[" then
@@ -164,15 +170,15 @@ tokens.tokenise = function(code)
       tokens.bracketIndentation = tokens.bracketIndentation + 1
       tokens.simpleToken("[")
     elseif tokens.char == "]" then
-      tokens.Token.indentation = tokens.bracketIndentation
       tokens.bracketIndentation = tokens.bracketIndentation - 1
+      tokens.Token.indentation = tokens.bracketIndentation
       if tokens.bracketIndentation < 1 then
         error("No matching opening bracket for closing bracket\n",
           tokens.line, "| ",
           string.sub(tokens.code, tokens.bol, tokens.ip), "...")
       end
       for i=#tokens.Tokens, 1, -1 do
-        if tokens.Tokens[i].token == "[" and tokens.Tokens[i].indentation == tokens.Token.indentation then
+        if tokens.Tokens[i].name == "[" and tokens.Tokens[i].indentation == tokens.Token.indentation then
           tokens.Token.jump = i
           tokens.Tokens[i].jump = #tokens.Tokens + 1
           break
@@ -182,6 +188,8 @@ tokens.tokenise = function(code)
         error("This shouldn't have happened")
       end
       tokens.simpleToken("]")
+    else
+      tokens.cont()
     end
   until tokens.ip > #tokens.code
   if tokens.bracketIndentation > 1 then

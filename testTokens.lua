@@ -4,18 +4,18 @@ Tokens = {}
 
 function compareTokens(a, b)
   -- tokens must have a name
-  if not a.token or not b.token then
+  if not a.name or not b.name then
     return false
   end
 
   -- these names must match
-  if a.token ~= b.token then
+  if a.name ~= b.name then
     return false
   end
   
   -- "[" and "]" have the special fields
   -- indentation and jump
-  if a.token == "[" or a.token == "]" then
+  if a.name == "[" or a.name == "]" then
     if not a.indentation or not b.indentation then
       return false
     end
@@ -31,9 +31,9 @@ function compareTokens(a, b)
 
   -- "string", "number", and "variable" all have
   -- a special field called value
-  if a.token == "string" or
-    a.token == "number" or
-    a.token == "variable" then
+  if a.name == "string" or
+    a.name == "number" or
+    a.name == "variable" then
     if not a.value or not b.value then
       return false
     end
@@ -81,15 +81,15 @@ end
 function printTokens(code)
   local Tokens = tokens.tokenise(code)
   for i, val in ipairs(Tokens) do
-    if val.token == "[" or 
-      val.token == "]" then
-      print(val.token, val.indentation, jump)
-    elseif val.token == "string" or
-      val.token == "number" or
-      val.token == "variable" then
-      print(val.token, val.value)
+    if val.name == "[" or 
+      val.name == "]" then
+      print(val.name, val.indentation, val.jump)
+    elseif val.name == "string" or
+      val.name == "number" or
+      val.name == "variable" then
+      print(val.name, val.value)
     else
-      print(val.token)
+      print(val.name)
     end
   end
 end
@@ -100,11 +100,18 @@ function addTest(c, e)
     table.insert(tests, {code=c, expected=e})
 end
 
-addTest(">1", {{token=">"}, {token="number", value=1}})
-addTest(">1>2", {{token=">"}, {token="number", value=1}, {token=">"}, {token="number", value=2}})
-addTest(">27>35", {{token=">"}, {token="number", value=27}, {token=">"}, {token="number", value=35}})
-addTest(">27", {{token=">"}, {token="number", value=27}})
-addTest(">\"27\"", {{token=">"}, {token="string", value="27"}})
-addTest(">|27|", {{token=">"}, {token="variable", value="27"}})
+addTest(">1", {{name=">"}, {name="number", value=1}})
+addTest(">1>2", {{name=">"}, {name="number", value=1}, {name=">"}, {name="number", value=2}})
+addTest(">27>35", {{name=">"}, {name="number", value=27}, {name=">"}, {name="number", value=35}})
+addTest(">27", {{name=">"}, {name="number", value=27}})
+addTest(">\"27\"", {{name=">"}, {name="string", value="27"}})
+addTest(">|27|", {{name=">"}, {name="variable", value="27"}})
+addTest("[]", {{name="[", indentation=1, jump=2}, {name="]", indentation=1, jump=1}})
+addTest("[[]]", {{name="[", indentation=1, jump=4},
+                 {name="[", indentation=2, jump=3},
+                 {name="]", indentation=2, jump=2},
+                 {name="]", indentation=1, jump=1}})
+addTest(">1\n", {{name=">"}, {name="number", value=1}})
+addTest("h", {})
 
 runTests(tests)

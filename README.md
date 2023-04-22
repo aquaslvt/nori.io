@@ -7,6 +7,7 @@ The iterpreter reads the program left-to-right, character per character, and alw
 The interpreter ignores every other character than these, making them no-op.
 
 ### Main commands
+nori.io arithmetic is TOS × NOS
 
 | Command     | Description                                                   |
 | ----------- | ------------------------------------------------------------- |

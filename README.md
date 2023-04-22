@@ -25,7 +25,7 @@ The interpreter ignores every other character than these, making them no-op.
 | `*`         | Multiply last two values together, leaving only the result    |
 | `/`         | Divide last two values together, leaving only the result      |
 | `^`         | Raise last two values together, leaving only the result       |
-| `z`         | Square root last two values together, leaving only the result |
+| `z`         | Square root the last value, leaving only the result           |
 | `%`         | Modulo last two values together, leaving only the result      |
 | `c`         | Ceil the last number                                          |
 | `f`         | Floor the last number                                         |

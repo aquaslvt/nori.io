@@ -151,12 +151,18 @@ tokens.tokenise = function(code)
       tokens.simpleToken("f")
     elseif tokens.char == "r" then
       tokens.simpleToken("r")
+    elseif tokens.char == "b" then
+      tokens.simpleToken("b")
+    elseif tokens.char == "B" then
+      tokens.simpleToken("B")
     elseif tokens.char == "@" then
       tokens.simpleToken("@")
     elseif tokens.char == ":" then
       tokens.simpleToken(":")
     elseif tokens.char == "$" then
       tokens.simpleToken("$")
+    elseif tokens.char == "_" then
+      tokens.simpleToken("_")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
     elseif tokens.char == "[" then

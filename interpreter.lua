@@ -111,6 +111,9 @@ function interpreter.interpret(code)
 
       elseif char == "$" then
         Stack:reverse()
+
+      elseif char == "_" then
+        io.write('\a v( · w ·)v')
         
       elseif char == "W" then
         ip = 0

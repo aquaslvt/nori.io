@@ -65,12 +65,15 @@ end
 
 function runTests(tests)
     for i, test in ipairs(tests) do
+        print("tokenising", test.code)
         local outcome = testTokenisation(test.code, test.expected)
         if outcome then
-            print("test " .. i, "token " .. outcome,
-            "expected " .. test.expected[outcome], "got " .. Tokens[outcome])
+            print("failed")
+            printTokens(test.code)
+            -- print("token " .. outcome, "got " .. Tokens[outcome])
+            --     "expected " .. test.expected[outcome], "got " .. Tokens[outcome])
         else
-            print(i, "passed")
+            print("passed")
         end
     end
 end
@@ -91,10 +94,17 @@ function printTokens(code)
     end
 end
 
-tests = {
-    {code=">1", expected={{token=">"}, {token="number", value=1}}},
-    {code=">27", expected={{token=">"}, {token="number", value=27}}},
-    {code=">\"27\"", expected={{token=">"}, {token="string", value="27"}}},
-    {code=">|27|", expected={{token=">"}, {token="variable", value="27"}}}
-}
+tests = {}
+
+function addTest(c, e)
+    table.insert(tests, {code=c, expected=e})
+end
+
+addTest(">1", {{token=">"}, {token="number", value=1}})
+addTest(">1>2", {{token=">"}, {token="number", value=1}, {token=">"}, {token="number", value=2}})
+addTest(">27>35", {{token=">"}, {token="number", value=27}, {token=">"}, {token="number", value=35}})
+addTest(">27", {{token=">"}, {token="number", value=27}})
+addTest(">\"27\"", {{token=">"}, {token="string", value="27"}})
+addTest(">|27|", {{token=">"}, {token="variable", value="27"}})
+
 runTests(tests)

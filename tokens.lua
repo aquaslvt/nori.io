@@ -13,8 +13,8 @@ tokens.bracketIndentation = 1
 
 tokens.cont = function()
     tokens.ip = tokens.ip + 1
-
     if tokens.ip > #tokens.code then
+        -- print("end of file")
         return false
     end
 
@@ -23,6 +23,7 @@ tokens.cont = function()
         tokens.bol = tokens.ip
         tokens.line = tokens + 1
     end
+    -- print("token ", tokens.ip, ":", tokens.char)
     return true
 end
 
@@ -36,7 +37,7 @@ tokens.addString = function()
 
     local e = tokens.cont()
     local start = tokens.ip
-    while tokens.char ~= "\"" or not e do
+    while tokens.char ~= "\"" and e do
         e = tokens.cont()
     end
 
@@ -47,6 +48,8 @@ tokens.addString = function()
     end
 
     tokens.Token.value = string.sub(tokens.code, start, tokens.ip - 1)
+    tokens.cont()
+    tokens.addToken()
 end
 
 tokens.addNumber = function()
@@ -60,6 +63,7 @@ tokens.addNumber = function()
 
     local stringVal = string.sub(tokens.code, start, tokens.ip - 1)
     tokens.Token.value = tonumber(stringVal)
+    tokens.addToken()
 end
 
 tokens.addVariable = function()
@@ -67,7 +71,7 @@ tokens.addVariable = function()
 
     local e = tokens.cont()
     local start = tokens.ip
-    while tokens.char ~= "|" or not e do
+    while tokens.char ~= "|" and e do
         e = tokens.cont()
     end
 
@@ -78,6 +82,14 @@ tokens.addVariable = function()
     end
 
     tokens.Token.value = string.sub(tokens.code, start, tokens.ip - 1)
+    tokens.cont()
+    tokens.addToken()
+end
+
+tokens.simpleToken = function(name)
+    tokens.Token.token = name
+    tokens.cont()
+    tokens.addToken()
 end
 
 tokens.tokenise = function(code)
@@ -90,23 +102,17 @@ tokens.tokenise = function(code)
     tokens.Token = {}
     tokens.bracketIndentation = 1
 
-    -- should this include 0 or not?
-    local numbers = "[123456789]"
-
     tokens.code = code
     tokens.ip = 0
     tokens.cont()
 
     repeat
+        -- print(tokens.char)
         if tokens.char == ">" then
-            tokens.Token.token = ">"
-            tokens.addToken()
-            if not tokens.cont() then
-                error("Reached end of file without a value to push")
-            end
+            tokens.simpleToken(">")
             if tokens.char == "\"" then
                 tokens.addString()
-            elseif string.match(tokens.char, numbers) then
+            elseif string.match(tokens.char, "%d") then
                 tokens.addNumber()
             elseif tokens.char == "|" then
                 tokens.addVariable()
@@ -116,51 +122,50 @@ tokens.tokenise = function(code)
                     string.sub(tokens.code, tokens.bol, tokens.ip), "...")
             end
         elseif tokens.char == "<" then
-            tokens.Token.token = "<"
+            tokens.simpleToken("<")
         elseif tokens.char == "I" then
-            tokens.Token.token = "I"
+            tokens.simpleToken("I")
         elseif tokens.char == "N" then
-            tokens.Token.token = "N"
+            tokens.simpleToken("N")
         elseif tokens.char == "," then
-            tokens.Token.token = ","
+            tokens.simpleToken(",")
         elseif tokens.char == "." then
-            tokens.Token.token = "."
+            tokens.simpleToken(".")
         elseif tokens.char == "O" then
-            tokens.Token.token = "O"
+            tokens.simpleToken("O")
         elseif tokens.char == "+" then
-            tokens.Token.token = "+"
+            tokens.simpleToken("+")
         elseif tokens.char == "-" then
-            tokens.Token.token = "-"
+            tokens.simpleToken("-")
         elseif tokens.char == "*" then
-            tokens.Token.token = "*"
+            tokens.simpleToken("*")
         elseif tokens.char == "/" then
-            tokens.Token.token = "/"
+            tokens.simpleToken("/")
         elseif tokens.char == "%" then
-            tokens.Token.token = "%"
+            tokens.simpleToken("%")
         elseif tokens.char == "^" then
-            tokens.Token.token = "^"
+            tokens.simpleToken("^")
         elseif tokens.char == "z" then
-            tokens.Token.token = "z"
+            tokens.simpleToken("z")
         elseif tokens.char == "c" then
-            tokens.Token.token = "c"
+            tokens.simpleToken("c")
         elseif tokens.char == "f" then
-            tokens.Token.token = "f"
+            tokens.simpleToken("f")
         elseif tokens.char == "r" then
-            tokens.Token.token = "r"
+            tokens.simpleToken("r")
         elseif tokens.char == "@" then
-            tokens.Token.token = "@"
+            tokens.simpleToken("@")
         elseif tokens.char == ":" then
-            tokens.Token.token = ":"
+            tokens.simpleToken(":")
         elseif tokens.char == "$" then
-            tokens.Token.token = "$"
+            tokens.simpleToken("$")
         elseif tokens.char == "W" then
-            tokens.Token.token = "W"
+            tokens.simpleToken("W")
         elseif tokens.char == "[" then
-            tokens.Token.token = "["
             tokens.Token.indentation = tokens.bracketIndentation
             tokens.bracketIndentation = tokens.bracketIndentation + 1
+            tokens.simpleToken("[")
         elseif tokens.char == "]" then
-            tokens.Token.token = "]"
             tokens.Token.indentation = tokens.bracketIndentation
             tokens.bracketIndentation = tokens.bracketIndentation - 1
             if tokens.bracketIndentation < 1 then
@@ -175,12 +180,11 @@ tokens.tokenise = function(code)
                     break
                 end
             end
-            if ~tokens.Token.jump then
+            if not tokens.Token.jump then
                 error("This shouldn't have happened")
             end
+            tokens.simpleToken("]")
         end
-        tokens.addToken()
-        tokens.cont()
     until tokens.ip > #tokens.code
     if tokens.bracketIndentation > 1 then
         error("Unmatched opening brackets")

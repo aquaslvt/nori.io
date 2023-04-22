@@ -64,5 +64,9 @@ This kinda looks like a DNA when run in a fullscreen terminal
 
 ```rOW```
 
+### Generate random bytes over and over
+Could contain a secret ASCII encoded message?
+```BOW```
+
 ## Other variations
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

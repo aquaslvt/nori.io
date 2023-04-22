@@ -85,6 +85,18 @@ function interpreter.interpret(code)
 
       elseif char == "r" then
         Stack:push(math.random())
+
+      elseif char == "b" then
+        Stack:push(math.random(0, 1))
+
+      elseif char == "B" then
+        local byte_str = ""
+
+        for i = 1, 8 do
+          byte_str = byte_str .. tostring(math.random(0, 1))
+        end
+        
+        Stack:push(byte_str)
       
       elseif char == "@" then
         local x = Stack:pop()
@@ -100,10 +112,13 @@ function interpreter.interpret(code)
       elseif char == "$" then
         Stack:reverse()
 
+      elseif char == "_" then
+        io.write('\a v( · w ·)v')
+        
       elseif char == "W" then
         ip = 0
+    
       end
-
       -- Update the ip-
       ip = ip + 1
       char = string.sub(code, ip, ip)

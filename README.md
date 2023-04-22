@@ -1,5 +1,5 @@
 # nori.io
-nori.io is a short esolang named after a stray cat I found
+nori.io is a short stack-based esolang named after a stray cat I found
 
 The iterpreter reads the program left-to-right, character per character, and always moves right.
 
@@ -7,6 +7,7 @@ The iterpreter reads the program left-to-right, character per character, and alw
 The interpreter ignores every other character than these, making them no-op.
 
 ### Main commands
+nori.io arithmetic is TOS × NOS
 
 | Command     | Description                                                   |
 | ----------- | ------------------------------------------------------------- |
@@ -25,11 +26,13 @@ The interpreter ignores every other character than these, making them no-op.
 | `*`         | Multiply last two values together, leaving only the result    |
 | `/`         | Divide last two values together, leaving only the result      |
 | `^`         | Raise last two values together, leaving only the result       |
-| `z`         | Square root last two values together, leaving only the result |
+| `z`         | Square root the last value, leaving only the result           |
 | `%`         | Modulo last two values together, leaving only the result      |
 | `c`         | Ceil the last number                                          |
 | `f`         | Floor the last number                                         |
 | `r`         | Push a random number                                          |
+| `b`         | Push a random bit (either 0 or 1)                             |
+| `B`         | Push a random byte                                            |
 | `W`         | Set the IP position to 0 (wrap around the program)            |
 
 ## Example programs
@@ -55,11 +58,17 @@ This programs asks for the width and height of a rectangle
 
 ```NN*O```
 
-### DNA-looking thingy
+### Funny looking thing
+*Warning: flashing lights*
+
 This kinda looks like a DNA when run in a fullscreen terminal
-**TW: Flash**
 
 ```rOW```
+
+### Generate random bytes over and over
+Could contain a secret ASCII encoded message?
+
+```BOW```
 
 ## Other variations
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

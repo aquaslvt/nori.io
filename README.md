@@ -66,6 +66,7 @@ This kinda looks like a DNA when run in a fullscreen terminal
 
 ### Generate random bytes over and over
 Could contain a secret ASCII encoded message?
+
 ```BOW```
 
 ## Other variations

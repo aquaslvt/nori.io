@@ -30,6 +30,8 @@ The interpreter ignores every other character than these, making them no-op.
 | `c`         | Ceil the last number                                          |
 | `f`         | Floor the last number                                         |
 | `r`         | Push a random number                                          |
+| `b`         | Push a random bit (either 0 or 1)                             |
+| `B`         | Push a random byte                                            |
 | `W`         | Set the IP position to 0 (wrap around the program)            |
 
 ## Example programs

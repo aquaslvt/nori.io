@@ -1,0 +1,19 @@
+entrypoint = "main.lua"
+
+[interpreter]
+command = [
+    "prybar-lua",
+    "-q",
+    "--ps1",
+    "\u0001\u001b[33m\u0002\u0001\u001b[00m\u0002 ",
+    "-i"
+]
+
+[nix]
+channel = "stable-22_11"
+
+[languages.lua]
+pattern = "**/*.lua"
+
+[languages.lua.languageServer]
+start = ["lua-language-server"]

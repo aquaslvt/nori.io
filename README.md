@@ -121,6 +121,3 @@ Take one down and pass it around, "O
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)
 
 [nori.io++ (unofficial)](https://github.com/MoshiKoi/noripp)
-
-![bun](https://static.wikia.nocookie.net/omori/images/0/03/BunBunnyWalk.gif/revision/latest?cb=20210530091211&format=original)
-![bun](https://static.wikia.nocookie.net/omori/images/c/c2/PancakeBunnyWalk.gif/revision/latest?cb=20210530091733&format=original)

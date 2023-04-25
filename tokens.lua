@@ -80,7 +80,7 @@ end
 
 tokens.add_float = function()
   if tokens.char ~= "f" then
-    error("you're calling the float tokenising function wrong")
+    error("You're calling the float tokenising function wrong")
   end
 
   tokens.Token.name = "number"
@@ -150,7 +150,7 @@ tokens.tokenise = function(code)
       tokens.strip()
       if tokens.char == "\"" or tokens.char == "'" then
         tokens.addString()
-      elseif tokens.char == "f" then
+      elseif tokens.char == "F" then
         tokens.add_float()
       elseif string.match(tokens.char, "%d") then
         tokens.add_integer()

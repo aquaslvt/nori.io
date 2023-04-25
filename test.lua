@@ -63,6 +63,7 @@ runTest("$", {1, 2}, {2, 1}, "Reverse 2 elements")
 runTest("$", {"test", 73, true}, {true, 73, "test"}, "Reverse various elements")
 
 print()
+
 for _, unpassedTest in ipairs(testResults) do
     print(unpassedTest)
 end

@@ -1,3 +1,5 @@
+-- Thanks JJRubes for making this tokenizer! :D
+
 tokens = {}
 
 stack_funcs = require("stack_funcs")

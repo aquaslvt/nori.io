@@ -138,7 +138,7 @@ function interpreter.interpret(code)
       Stack:push(x)
 
     end
-    -- Update the tp-
+
     tp = tp + 1
     token = token_list[tp]
   end

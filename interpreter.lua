@@ -123,6 +123,20 @@ function interpreter.interpret(code)
     elseif token.name == "W" then
       tp = 0
   
+    elseif token.name == "[" then
+      local x = Stack:pop()
+      if x == 0 then
+        tp = token.jump
+      end
+      Stack:push(x)
+
+    elseif token.name == "]" then
+      local x = Stack:pop()
+      if x ~= 0 then
+        tp = token.jump
+      end
+      Stack:push(x)
+
     end
     -- Update the tp-
     tp = tp + 1

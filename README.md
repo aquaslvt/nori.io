@@ -101,21 +101,6 @@ r>28607*f>12353+   >"generate a code point"<
 ...                >"print the character"<
 ```
 
-### 99 bottles of beer
-
-```nio
->99
-[
-:O
->" bottles of beer on the wall, "O :O >" bottles of beer.
-Take one down and pass it around, "O
->1@-
-:O >" bottles of beer on the wall.
-
-"O
-]
-```
-
 ## Other variations
 
 [nori.io legacy](https://scratch.mit.edu/projects/819125582/)

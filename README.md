@@ -50,6 +50,10 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 
 ```NO```
 
+### Truth-machine
+
+```N[>1O]>0O```
+
 ### Hello world
 
 ```>"Hello, world!"O```

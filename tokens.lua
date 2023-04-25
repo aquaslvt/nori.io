@@ -31,12 +31,25 @@ tokens.addToken = function()
   tokens.Token = {}
 end
 
+tokens.strip = function()
+  local e = true
+  while string.match(tokens.char, "%s") and e do
+    e = tokens.cont()
+  end
+  return e
+end
+
 tokens.addString = function()
   tokens.Token.name = "string"
 
+  local quote = tokens.char
+  if quote ~= "\"" and quote ~= "'" then
+    error("you're calling the string tokenising function wrong")
+  end
+
   local e = tokens.cont()
   local start = tokens.ip
-  while tokens.char ~= "\"" and e do
+  while tokens.char ~= quote and e do
     e = tokens.cont()
   end
 
@@ -51,13 +64,38 @@ tokens.addString = function()
   tokens.addToken()
 end
 
-tokens.addNumber = function()
+tokens.add_integer = function()
   tokens.Token.name = "number"
 
   local e = true
   local start = tokens.ip
   while string.match(tokens.char, "%d") and e do
     e = tokens.cont()
+  end
+
+  local stringVal = string.sub(tokens.code, start, tokens.ip - 1)
+  tokens.Token.value = tonumber(stringVal)
+  tokens.addToken()
+end
+
+tokens.add_float = function()
+  if tokens.char ~= "f" then
+    error("you're calling the float tokenising function wrong")
+  end
+
+  tokens.Token.name = "number"
+
+  local e = tokens.cont()
+  local start = tokens.ip
+  while string.match(tokens.char, "%d") and e do
+    e = tokens.cont()
+  end
+  
+  if string.match(tokens.char, "%.") then
+    e = tokens.cont()
+    while string.match(tokens.char, "%d") and e do
+      e = tokens.cont()
+    end
   end
 
   local stringVal = string.sub(tokens.code, start, tokens.ip - 1)
@@ -104,20 +142,23 @@ tokens.tokenise = function(code)
   tokens.code = code
   tokens.ip = 0
   tokens.cont()
+  tokens.strip()
 
-  repeat
+  while tokens.ip <= #tokens.code do
     if tokens.char == ">" then
       tokens.simpleToken(">")
-      if tokens.char == "\"" then
+      tokens.strip()
+      if tokens.char == "\"" or tokens.char == "'" then
         tokens.addString()
+      elseif tokens.char == "f" then
+        tokens.add_float()
       elseif string.match(tokens.char, "%d") then
-        tokens.addNumber()
+        tokens.add_integer()
       elseif tokens.char == "|" then
         tokens.addVariable()
       else
-        error("Push missing value to push\n",
-          tokens.line, "| ",
-          string.sub(tokens.code, tokens.bol, tokens.ip), "...")
+        error("Push missing value to push\n" .. tokens.line .. "| " ..
+          string.sub(tokens.code, tokens.bol, tokens.ip) .. "...")
       end
     elseif tokens.char == "<" then
       tokens.simpleToken("<")
@@ -191,7 +232,8 @@ tokens.tokenise = function(code)
     else
       tokens.cont()
     end
-  until tokens.ip > #tokens.code
+    tokens.strip()
+  end
   if tokens.bracketIndentation > 1 then
     error("Unmatched opening brackets")
   end

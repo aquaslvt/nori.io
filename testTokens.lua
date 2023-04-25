@@ -100,18 +100,26 @@ function addTest(c, e)
     table.insert(tests, {code=c, expected=e})
 end
 
+addTest("h", {})
+addTest("", {})
 addTest(">1", {{name=">"}, {name="number", value=1}})
+addTest(">1\n", {{name=">"}, {name="number", value=1}})
+addTest("> 1", {{name=">"}, {name="number", value=1}})
+addTest("1 > 1", {{name=">"}, {name="number", value=1}})
+addTest(">f1", {{name=">"}, {name="number", value=1}})
+addTest(">f1.1", {{name=">"}, {name="number", value=1.1}})
+addTest(">1.", {{name=">"}, {name="number", value=1}, {name="."}})
+addTest(">f1.1.", {{name=">"}, {name="number", value=1.1}, {name="."}})
 addTest(">1>2", {{name=">"}, {name="number", value=1}, {name=">"}, {name="number", value=2}})
 addTest(">27>35", {{name=">"}, {name="number", value=27}, {name=">"}, {name="number", value=35}})
 addTest(">27", {{name=">"}, {name="number", value=27}})
 addTest(">\"27\"", {{name=">"}, {name="string", value="27"}})
+addTest(">'27'", {{name=">"}, {name="string", value="27"}})
 addTest(">|27|", {{name=">"}, {name="variable", value="27"}})
 addTest("[]", {{name="[", indentation=1, jump=2}, {name="]", indentation=1, jump=1}})
 addTest("[[]]", {{name="[", indentation=1, jump=4},
                  {name="[", indentation=2, jump=3},
                  {name="]", indentation=2, jump=2},
                  {name="]", indentation=1, jump=1}})
-addTest(">1\n", {{name=">"}, {name="number", value=1}})
-addTest("h", {})
 
 runTests(tests)

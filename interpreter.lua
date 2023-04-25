@@ -18,7 +18,7 @@ function interpreter.interpret(code)
   ------------------------
   -- Interpret the code --
   ------------------------
-  repeat
+  while tp <= #token_list do
     if token.name == ">" then
       tp = tp + 1
       token = token_list[tp]
@@ -127,7 +127,7 @@ function interpreter.interpret(code)
     -- Update the tp-
     tp = tp + 1
     token = token_list[tp]
-  until tp > #token_list
+  end
 end
 
 return interpreter

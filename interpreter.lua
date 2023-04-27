@@ -18,6 +18,7 @@ function interpreter.interpret(code)
   ------------------------
   -- Interpret the code --
   ------------------------
+  
   while tp <= #token_list do
     if token.name == ">" then
       tp = tp + 1

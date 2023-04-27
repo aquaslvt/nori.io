@@ -1,0 +1,9 @@
+r>28607*f>12353+   >"generate a code point"<
+::>64@/f>64*@-     >"get the bottom 6 bits"<
+>128+@             >"store the last byte"<
+>64@/f             >"remove the bottome six bits"<
+::>64@/f>64*@-     >"get the bottom 6 bits"<
+>128+@             >"store the next byte"<
+>64@/f             >"remove the bottome six bits"<
+>224+              >"store the first byte"<
+...                >"print the character"<

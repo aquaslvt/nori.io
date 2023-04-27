@@ -50,10 +50,6 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 
 ```NO```
 
-### Truth-machine
-
-```N[>1O]>0O```
-
 ### Hello world
 
 ```>"Hello, world!"O```
@@ -68,13 +64,9 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 
 ### Square area
 
-This programs asks user input for a square's side
-
 ```>"Side: ">2N^O```
 
 ### Rectangle area
-
-This programs asks for the width and height of a rectangle
 
 ```nio
 >"Width: "O N
@@ -83,8 +75,6 @@ This programs asks for the width and height of a rectangle
 
 ### Generate random bytes over and over
 
-Could contain a secret ASCII encoded message?
-
 ```BOW```
 
 ### Random character generator
@@ -92,6 +82,8 @@ Could contain a secret ASCII encoded message?
 ```r>94*f>32+.```
 
 ### Random CJK character generator
+
+*Note: might not work on all terminals*
 
 ```nio
 r>28607*f>12353+   >"generate a code point"<
@@ -103,6 +95,21 @@ r>28607*f>12353+   >"generate a code point"<
 >64@/f             >"remove the bottom six bits"<
 >224+              >"store the first byte"<
 ...                >"print the character"<
+```
+
+### 99 bottles of beer
+
+```nio
+>99
+[
+:O
+>" bottles of beer on the wall, "O :O >" bottles of beer.
+Take one down and pass it around, "O
+>1@-
+:O >" bottles of beer on the wall.
+
+"O
+]
 ```
 
 ## Other variations

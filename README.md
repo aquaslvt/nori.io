@@ -86,15 +86,15 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 *Note: might not work on all terminals*
 
 ```nio
-r>28607*f>12353+   >"generate a code point"<
-::>64/f>64*-       >"get the bottom 6 bits"<
->128+@             >"store the last byte"<
->64/f              >"remove the bottom six bits"<
-::>64/f>64*-       >"get the bottom 6 bits"<
->128+@             >"store the next byte"<
->64/f              >"remove the bottom six bits"<
->224+              >"store the first byte"<
-...                >"print the character"<
+r>28607*f>12353+   ~~ generate a code point
+::>64/f>64*-       ~~ get the bottom 6 bits
+>128+@             ~~ store the last byte
+>64/f              ~~ remove the bottom six bits
+::>64/f>64*-       ~~ get the bottom 6 bits
+>128+@             ~~ store the next byte
+>64/f              ~~ remove the bottom six bits
+>224+              ~~ store the first byte
+...                ~~ print the character
 ```
 
 ### 99 bottles of beer

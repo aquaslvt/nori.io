@@ -2,7 +2,7 @@
 
 nori.io is a short stack-based esolang named after a stray cat I found!
 
-The iterpreter reads the program left-to-right, character per character, and always moves right.
+The interpreter reads the program left-to-right, character per character, and always moves right.
 
 ## Commands
 

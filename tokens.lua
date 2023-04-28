@@ -231,6 +231,17 @@ tokens.tokenise = function(code)
         error("This shouldn't have happened")
       end
       tokens.simpleToken("]")
+    elseif tokens.char == "~" then
+      tokens.cont()
+      if tokens.char == "~" then
+        tokens.cont()
+        while tokens.char ~= "~" do
+          while tokens.char ~= "~" do
+            tokens.cont()
+          end
+          tokens.cont()
+        end
+      end
     else
       tokens.cont()
     end

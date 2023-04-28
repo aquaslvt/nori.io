@@ -36,7 +36,7 @@ The interpreter ignores every other character than these, making them no-op.
 | `B`         | Push a random byte                                            |
 | `W`         | Set the IP position to 0 (repeat the program)                 |
 
-nori.io arithmetic is TOS × NOS
+nori.io arithmetic is NOS × TOS, meaning that `>3>2*` will duplicate 3 (2nd value) by 2 (last value)
 
 ## Example programs
 
@@ -62,10 +62,6 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 
 ```II@:O>" + "O:O+>" = "OO```
 
-### Square area
-
-```>"Side: ">2N^O```
-
 ### Rectangle area
 
 ```nio
@@ -87,12 +83,12 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 
 ```nio
 r>28607*f>12353+   >"generate a code point"<
-::>64@/f>64*@-     >"get the bottom 6 bits"<
+::>64/f>64*-       >"get the bottom 6 bits"<
 >128+@             >"store the last byte"<
->64@/f             >"remove the bottom six bits"<
-::>64@/f>64*@-     >"get the bottom 6 bits"<
+>64/f              >"remove the bottom six bits"<
+::>64/f>64*-       >"get the bottom 6 bits"<
 >128+@             >"store the next byte"<
->64@/f             >"remove the bottom six bits"<
+>64/f              >"remove the bottom six bits"<
 >224+              >"store the first byte"<
 ...                >"print the character"<
 ```
@@ -105,7 +101,7 @@ r>28607*f>12353+   >"generate a code point"<
 :O
 >" bottles of beer on the wall, "O :O >" bottles of beer.
 Take one down and pass it around, "O
->1@-
+>1-
 :O >" bottles of beer on the wall.
 
 "O

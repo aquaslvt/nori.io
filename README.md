@@ -1,6 +1,6 @@
 # nori.io
 
-nori.io is a short stack-based esolang named after a stray cat I found
+nori.io is a short stack-based esolang named after a stray cat I found!
 
 The iterpreter reads the program left-to-right, character per character, and always moves right.
 
@@ -49,6 +49,10 @@ Here are some example programs! There are a bunch of them (send help they spawn 
 ### Numerical cat program
 
 ```NO```
+
+### Bit inverter
+
+```>1@-```
 
 ### Hello world
 

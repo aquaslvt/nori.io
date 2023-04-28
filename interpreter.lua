@@ -50,44 +50,47 @@ function interpreter.interpret(code)
     elseif token.name == "+" then
       local x = Stack:pop()
       local y = Stack:pop()
+      
       Stack:push(x + y)
 
     elseif token.name == "-" then
       local x = Stack:pop()
       local y = Stack:pop()
-      Stack:push(x - y)
+
+      Stack:push(y - x)
 
     elseif token.name == "*" then
       local x = Stack:pop()
       local y = Stack:pop()
+
       Stack:push(x * y)
 
     elseif token.name == "/" then
       local x = Stack:pop()
       local y = Stack:pop()
-      Stack:push(x / y)
+
+      Stack:push(y / x)
 
     elseif token.name == "%" then
       local x = Stack:pop()
       local y = Stack:pop()
-      Stack:push(x % y)
+
+      Stack:push(y % x)
 
     elseif token.name == "^" then
       local x = Stack:pop()
       local y = Stack:pop()
-      Stack:push(x ^ y)
+
+      Stack:push(y ^ x)
 
     elseif token.name == "z" then
-      local x = Stack:pop()
-      Stack:push(math.sqrt(x))
+      Stack:push(math.sqrt(Stack:pop()))
 
     elseif token.name == "c" then
-      local x = Stack:pop()
-      Stack:push(math.ceil(x))
+      Stack:push(math.ceil(Stack:pop()))
 
     elseif token.name == "f" then
-      local x = Stack:pop()
-      Stack:push(math.floor(x))
+      Stack:push(math.floor(Stack:pop()))
 
     elseif token.name == "r" then
       Stack:push(math.random())
@@ -107,11 +110,13 @@ function interpreter.interpret(code)
     elseif token.name == "@" then
       local x = Stack:pop()
       local y = Stack:pop()
+      
       Stack:push(x)
       Stack:push(y)
 
     elseif token.name == ":" then
       local x = Stack:pop()
+
       Stack:push(x)
       Stack:push(x)
 
@@ -126,16 +131,20 @@ function interpreter.interpret(code)
   
     elseif token.name == "[" then
       local x = Stack:pop()
+      
       if x == 0 then
         tp = token.jump
       end
+
       Stack:push(x)
 
     elseif token.name == "]" then
       local x = Stack:pop()
+
       if x ~= 0 then
         tp = token.jump
       end
+
       Stack:push(x)
 
     end

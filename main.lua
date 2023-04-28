@@ -1,7 +1,7 @@
 -- Define variables --
 interpreter = require("interpreter")
 
--- If there is an argument open it --
+-- If there is an argument, open it! --
 local file_name = "main.nio"
 
 if arg[1] then

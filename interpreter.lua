@@ -24,9 +24,12 @@ function interpreter.interpret(code)
     if token.name == ">" then
       tp = tp + 1
       token = token_list[tp]
+
+      -- Check if it's a variable
+
       if token.name == "variable" then
         if not variables[token.value] then
-          error("Variable "..token.value.." not yet set")
+          error("Variable" .. token.value .. "not yet set")
         end
         Stack:push(variables[token.value])
       else

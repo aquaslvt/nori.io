@@ -34,9 +34,17 @@ The interpreter ignores every other character than these, making them no-op.
 | `r`         | Push a random number                                          |
 | `b`         | Push a random bit (either 0 or 1)                             |
 | `B`         | Push a random byte                                            |
+| `[`         | Jump past the matching `]` if last value is 0                 |
+| `]`         | Jump back to the matching `[` if last value is 1              |
 | `W`         | Set the IP position to 0 (repeat the program)                 |
 
-nori.io arithmetic is NOS × TOS, meaning that `>3>2*` will duplicate 3 (2nd value) by 2 (last value)
+nori.io arithmetic is NOS × TOS, meaning that `>3>2*`, for example, will duplicate 3 (2nd value) by 2 (last value).
+
+### Strings
+
+You can define strings using `""`, for example, `>"Hi"O` pushes the string *Hi* and then outputs it.
+
+Strings in nori.io are the same as Lua strings, so they might have weird behavior
 
 ## Example programs
 

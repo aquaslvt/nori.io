@@ -14,6 +14,7 @@ function interpreter.interpret(code)
   -- token pointer not toilet paper --
   local tp = 1
   local token = token_list[tp]
+  local variables = {}
 
   ------------------------
   -- Interpret the code --
@@ -23,7 +24,14 @@ function interpreter.interpret(code)
     if token.name == ">" then
       tp = tp + 1
       token = token_list[tp]
-      Stack:push(token.value)
+      if token.name == "variable" then
+        if not variables[token.value] then
+          error("Variable "..token.value.." not yet set")
+        end
+        Stack:push(variables[token.value])
+      else
+        Stack:push(token.value)
+      end
 
     elseif token.name == "<" then
       Stack:pop()
@@ -146,6 +154,16 @@ function interpreter.interpret(code)
       end
 
       Stack:push(x)
+
+    elseif token.name == "variable" then
+      variable_name = token.value
+      tp = tp + 1
+      token = token_list[tp]
+      if token.name == "<" then
+        variables[variable_name] = Stack:pop()
+      else
+        variables[variable_name] = token.value
+      end
 
     end
 

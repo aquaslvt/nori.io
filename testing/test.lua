@@ -62,6 +62,9 @@ runTest("$", {1}, {1}, "Reverse one element")
 runTest("$", {1, 2}, {2, 1}, "Reverse 2 elements")
 runTest("$", {"test", 73, true}, {true, 73, "test"}, "Reverse various elements")
 
+runTest("|test|'hi'>|test|", {}, {"hi"}, "Set then push a variable")
+runTest(">100|test|<>|test|", {}, {100}, "Set a variable by popping from the stack")
+
 print()
 
 for _, unpassedTest in ipairs(testResults) do

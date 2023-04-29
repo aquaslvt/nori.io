@@ -162,6 +162,23 @@ tokens.tokenise = function(code)
         error("Push missing value to push\n" .. tokens.line .. "| " ..
           string.sub(tokens.code, tokens.bol, tokens.ip) .. "...")
       end
+    elseif tokens.char == "|" then
+      tokens.addVariable()
+      tokens.strip()
+      if tokens.char == "\"" or tokens.char == "'" then
+        tokens.addString()
+      elseif tokens.char == "F" then
+        tokens.add_float()
+      elseif string.match(tokens.char, "%d") then
+        tokens.add_integer()
+      elseif tokens.char == "|" then
+        tokens.addVariable()
+      elseif tokens.char == "<" then
+        tokens.simpleToken("<")
+      else
+        error("Push missing value to set variable to\n" .. tokens.line .. "| " ..
+          string.sub(tokens.code, tokens.bol, tokens.ip) .. "...")
+      end
     elseif tokens.char == "<" then
       tokens.simpleToken("<")
     elseif tokens.char == "I" then

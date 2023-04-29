@@ -43,7 +43,11 @@ function interpreter.interpret(code)
       Stack:push(io.read())
 
     elseif token.name == "N" then
-      Stack:push(io.read('*n'))
+      local input = false
+      repeat
+        input = tonumber(io.read())
+      until input
+      Stack:push(input)
     
     elseif token.name == "," then
       local input = io.read()

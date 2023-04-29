@@ -1,4 +1,6 @@
--- TODO: Code cleanup @JJRubes and @mkukiro
+-- TODO | Code cleanup @JJRubes and @mkukiro
+-- TODO | Turn camelCase to snake_case
+-- TODO | Turn that ~100 lines in very few using a ranged for loop (1 -> 27)
 
 tokens = {}
 

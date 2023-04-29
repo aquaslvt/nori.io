@@ -38,7 +38,7 @@ The interpreter ignores every other character than these, making them no-op.
 | `]`         | Jump back to the matching `[` if last value is 1              |
 | `W`         | Set the IP position to 0 (repeat the program)                 |
 
-nori.io arithmetic is NOS × TOS, meaning that `>3>2*` will duplicate 3 (2nd value) by 2 (last value)
+nori.io arithmetic is NOS × TOS, meaning that `>3>2*`, for example, will duplicate 3 (2nd value) by 2 (last value).
 
 ### Strings
 

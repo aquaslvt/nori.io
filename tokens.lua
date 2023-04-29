@@ -1,4 +1,4 @@
--- Thanks JJRubes for making this tokenizer! :D
+-- TODO: Code cleanup @JJRubes and @mkukiro
 
 tokens = {}
 

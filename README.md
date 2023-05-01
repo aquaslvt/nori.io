@@ -48,7 +48,7 @@ Strings in nori.io are the same as Lua strings, so they might have weird behavio
 
 ## Example programs
 
-Here are some example programs! There are a bunch of them (send help they spawn every single nanosecond I breathe)
+Here are some example programs! There are a lot of them (send help they spawn every single nanosecond I breathe)
 
 ### Cat program
 

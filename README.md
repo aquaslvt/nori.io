@@ -44,6 +44,10 @@ nori.io arithmetic is NOS × TOS, meaning that `>3>2*`, for example, will duplic
 
 You can define strings using `""`, for example, `>"Hi"O` pushes the string *Hi* and then outputs it.
 
+### Comments
+
+You can even define comments in nori.io using the following syntax: `~~ comment ~~`
+
 Strings in nori.io are the same as Lua strings, so they might have weird behavior
 
 ## Example programs

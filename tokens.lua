@@ -1,6 +1,6 @@
 -- TODO | Code cleanup @JJRubes and @mkukiro
 -- TODO | Turn camelCase to snake_case
--- TODO | Turn that ~100 lines in very few using a ranged for loop (1 -> 27)
+-- TODO | Turn that ~100 lines in very few using a ranged for loop (1 - 27)
 
 tokens = {}
 
@@ -223,8 +223,12 @@ tokens.tokenise = function(code)
       tokens.simpleToken(":")
     elseif tokens.char == "$" then
       tokens.simpleToken("$")
+    elseif tokens.char == "v" then
+      tokens.simpleToken("v")
     elseif tokens.char == "_" then
       tokens.simpleToken("_")
+    elseif tokens.char == "X" then
+      tokens.simpleToken("X")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
     elseif tokens.char == "[" then

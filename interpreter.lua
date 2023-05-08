@@ -138,9 +138,17 @@ function interpreter.interpret(code)
     elseif token.name == "$" then
       Stack:reverse()
 
+    elseif token.name == "v" then
+      local x = Stack:pop()
+
+      table.insert(Stack, 1, x)
+
     elseif token.name == "_" then
       io.write('\a v( · w ·)v')
-      
+    
+    elseif token.name == "X" then
+      os.execute("clear")
+
     elseif token.name == "W" then
       tp = 0
   

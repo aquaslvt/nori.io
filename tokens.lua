@@ -193,6 +193,8 @@ tokens.tokenise = function(code)
       tokens.simpleToken(".")
     elseif tokens.char == "O" then
       tokens.simpleToken("O")
+    elseif tokens.char == "o" then
+      tokens.simpleToken("o")
     elseif tokens.char == "+" then
       tokens.simpleToken("+")
     elseif tokens.char == "-" then

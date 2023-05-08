@@ -217,12 +217,27 @@ function interpreter.interpret(code)
 
       table.insert(Stack, 1, x)
 
+    elseif token.name == "#" then
+      tp = tp + 1
+      token = token_list[tp]
+
+      -- Check if it's a variable
+
+      if token.name == "variable" then
+        if not variables[token.value] then
+          error("Variable" .. token.value .. "not yet set")
+        end
+        os.execute("sleep " .. tonumber(variables[token.value]))
+      else
+        os.execute("sleep " .. tonumber(token.value))
+      end
+
     elseif token.name == "_" then
       io.write('\a v( · w ·)v')
     
     elseif token.name == "W" then
       tp = 0
-  
+
     elseif token.name == "[" then
       local x = Stack:pop()
       

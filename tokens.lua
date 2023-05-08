@@ -231,6 +231,8 @@ tokens.tokenise = function(code)
       tokens.simpleToken("_")
     elseif tokens.char == "X" then
       tokens.simpleToken("X")
+    elseif tokens.char == "#" then
+      tokens.simpleToken("#")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
     elseif tokens.char == "[" then

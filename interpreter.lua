@@ -168,6 +168,23 @@ function interpreter.interpret(code)
 
       Stack:push(x)
 
+    elseif token.name == "?" then
+      if Stack:pop() ~= 0 then
+        tp = tp + 1
+        token = token_list[tp]
+  
+        -- Check if it's a variable
+  
+        if token.name == "variable" then
+          if not variables[token.value] then
+            error("Variable" .. token.value .. "not yet set")
+          end
+          tp = tp + variables[token.value]
+        else
+          tp = tp + token.value
+        end  
+      end
+
     elseif token.name == "variable" then
       variable_name = token.value
       tp = tp + 1

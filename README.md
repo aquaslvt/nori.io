@@ -18,6 +18,8 @@ The interpreter ignores every other character than these, making them no-op.
 | `I`         | Push the user input                                           |
 | `,`         | Push the user input as an ASCII value                         |
 | `O`         | Output the last value to the console then pop it              |
+| `o`         | Output the last value to the console then pop it w/newline    |
+| `X`         | Clear the output                                              |
 | `.`         | Output the last ASCII value to the console then pop it        |
 | `@`         | Swap the last two values                                      |
 | `$`         | Reverse the whole stack                                       |
@@ -36,6 +38,8 @@ The interpreter ignores every other character than these, making them no-op.
 | `B`         | Push a random byte                                            |
 | `[`         | Jump past the matching `]` if last value is 0                 |
 | `]`         | Jump back to the matching `[` if last value is 1              |
+| `?`         | If the popped value in non-zero, skip *value next to it* times|
+| `=`         | Set the IP position to the value next to it (GOTO)            |
 | `W`         | Set the IP position to 0 (repeat the program)                 |
 
 nori.io arithmetic is NOS × TOS, meaning that `>3>2*`, for example, will duplicate 3 (2nd value) by 2 (last value).
@@ -49,6 +53,18 @@ You can define strings using `""`, for example, `>"Hi"O` pushes the string *Hi* 
 You can even define comments in nori.io using the following syntax: `~~ comment ~~`
 
 Strings in nori.io are the same as Lua strings, so they might have weird behavior
+
+### Varibles
+
+You can define variables in nori.io, `|variable|"string"` is an example.
+
+```
+|str|"str"
+|int|1024
+|flt|f5.1
+|stk|<      ~~ This sets the variable to the popped value ~~
+```
+
 
 ## Example programs
 

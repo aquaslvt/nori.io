@@ -150,6 +150,21 @@ function interpreter.interpret(code)
     elseif token.name == "W" then
       tp = 0
   
+    elseif token.name == "!" then
+      tp = tp + 1
+      token = token_list[tp]
+    
+      -- Check if it's a variable
+
+      if token.name == "variable" then
+        if not variables[token.value] then
+          error("Variable" .. token.value .. "not yet set")
+        end
+        tp = variables[token.value]
+      else
+        tp = token.value
+    end
+
     elseif token.name == "[" then
       local x = Stack:pop()
       

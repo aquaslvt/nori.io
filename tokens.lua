@@ -235,6 +235,21 @@ tokens.tokenise = function(code)
       tokens.simpleToken("#")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
+    elseif tokens.char == "!" then
+      tokens.simpleToken("!")
+      tokens.strip()
+      if tokens.char == "\"" or tokens.char == "'" then
+        tokens.addString()
+      elseif tokens.char == "F" then
+        tokens.add_float()
+      elseif string.match(tokens.char, "%d") then
+        tokens.add_integer()
+      elseif tokens.char == "|" then
+        tokens.addVariable()
+      else
+        error("Push missing value to push\n" .. tokens.line .. "| " ..
+          string.sub(tokens.code, tokens.bol, tokens.ip) .. "...")
+      end
     elseif tokens.char == "?" then
       tokens.simpleToken("?")
       tokens.strip()

@@ -235,8 +235,8 @@ tokens.tokenise = function(code)
       tokens.simpleToken("#")
     elseif tokens.char == "W" then
       tokens.simpleToken("W")
-    elseif tokens.char == "!" then
-      tokens.simpleToken("!")
+    elseif tokens.char == "=" then
+      tokens.simpleToken("=")
       tokens.strip()
       if tokens.char == "\"" or tokens.char == "'" then
         tokens.addString()

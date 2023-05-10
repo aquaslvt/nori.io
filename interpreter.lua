@@ -150,7 +150,7 @@ function interpreter.interpret(code)
     elseif token.name == "W" then
       tp = 0
   
-    elseif token.name == "!" then
+    elseif token.name == "=" then
       tp = tp + 1
       token = token_list[tp]
     

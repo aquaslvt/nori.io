@@ -93,7 +93,7 @@ Here are some example programs! There are a lot of them (send help they spawn ev
 
 ### Cooler adder
 
-```II@:O>" + "O:O+>" = "OO```
+```NN@:O>" + "O:O+>" = "OO```
 
 ### Rectangle area
 

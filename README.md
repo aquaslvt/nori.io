@@ -1,3 +1,5 @@
+<img align="right" height="100" src="https://github.com/mkukiro/mkukiro/raw/main/noriioicon.svg">
+
 # nori.io
 
 nori.io is a short stack-based esolang named after a stray cat I found!
@@ -58,13 +60,12 @@ Strings in nori.io are the same as Lua strings, so they might have weird behavio
 
 You can define variables in nori.io, `|variable|"string"` is an example.
 
-```
+```nio
 |str|"str"
 |int|1024
 |flt|f5.1
 |stk|<      ~~ This sets the variable to the popped value ~~
 ```
-
 
 ## Example programs
 

@@ -1,4 +1,4 @@
-<img align="right" height="100" src="https://github.com/mkukiro/mkukiro/raw/main/noriioicon.svg">
+<img align="right" height="145" src="https://github.com/mkukiro/mkukiro/raw/main/noriioicon.svg">
 
 # nori.io
 

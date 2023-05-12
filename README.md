@@ -1,3 +1,6 @@
+| Hello! Please don't open pull requests on this repo, but rather open them for [nori.ni](https://github.com/mkukiro/nori.ni), I really appreciate pull requests! <img src="https://nukocities.neocities.org/nuko/react/cat23.gif"> |
+| - |
+
 <img align="right" height="145" src="https://github.com/mkukiro/mkukiro/raw/main/noriioicon.svg">
 
 # nori.io

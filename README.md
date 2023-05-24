@@ -5,7 +5,7 @@
 
 # nori.io
 
-nori.io is a short stack-based esolang named after a stray cat I found!
+nori.io is a Turing Complete stack-based esolang named after a stray cat I found!
 
 The interpreter reads the program left-to-right, character per character, and always moves right.
 
